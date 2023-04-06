@@ -1,13 +1,11 @@
 import { globalStyles } from './styles/global'
-
+import Navbar from './components/Navbar'
 globalStyles()
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Navbar />
     </div>
   )
 }
-
-export default App
