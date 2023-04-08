@@ -14,7 +14,7 @@ export const WrapperNavbar = styled('div', {
   justifyContent: 'space-between',
 
   width: '100%',
-  maxWidth: '68.622rem',
+  maxWidth: '69.622rem',
 })
 
 export const ContainerActions = styled('div', {
