@@ -14,7 +14,7 @@ export const WrapperNavbar = styled('div', {
   justifyContent: 'space-between',
 
   width: '100%',
-  maxWidth: '51.25rem',
+  maxWidth: '68.622rem',
 })
 
 export const ContainerActions = styled('div', {
@@ -23,27 +23,45 @@ export const ContainerActions = styled('div', {
   justifyContent: 'space-between',
 
   height: '2.375rem',
-  width: '12.0625rem',
+  width: '12.063rem',
+})
 
-  button: {
-    all: 'unset',
-    borderRadius: '6px',
-    backgroundColor: '$purpleLight',
-    color: '#4B2995',
-    cursor: 'pointer',
+export const BtnLocation = styled('button', {
+  all: 'unset',
+  borderRadius: '6px',
+  backgroundColor: '$purpleLight',
+  color: '#4B2995',
+  cursor: 'pointer',
 
-    display: 'flex',
-    alignItems: 'center',
-    gap: '4px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '4px',
 
-    padding: '8px',
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '14px',
+  lineHeight: '130%',
 
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontWeight: 400,
-    fontSize: '14px',
-    lineHeight: '130%',
+  height: '2.375rem',
+  width: '8.9375rem',
+})
 
-    width: '8.9375rem',
+export const Cart = styled('button', {
+  all: 'unset',
+  backgroundColor: '$yellowLight',
+  borderRadius: '6px',
+  cursor: 'pointer',
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  height: '2.375rem',
+  width: '2.375rem',
+
+  svg: {
+    color: '$yellowDark',
   },
 })
