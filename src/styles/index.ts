@@ -23,10 +23,12 @@ export const {
       baseTitle: '#272221',
       baseSubtitle: '#403937',
       baseText: '#574F4D',
+      baseCard: '#F3F2F2',
 
       baseHover: '#D7D5D5',
       baseButton: '#E6E5E5',
       baseInput: '#EDEDED',
+      baseLabel: '#8D8686',
 
       background: '#FAFAFA',
       white: '#fff',

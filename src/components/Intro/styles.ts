@@ -1,6 +1,6 @@
 import { styled } from '../../styles'
 
-export const ContainerIntro = styled('div', {
+export const ContainerIntro = styled('section', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

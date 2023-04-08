@@ -7,6 +7,10 @@ export const globalStyles = globalCss({
     boxSizing: 'border-box',
   },
 
+  body: {
+    overflowX: 'hidden',
+  },
+
   'body, input, textarea,button': {
     fontFamily: 'Roboto',
     fontWeight: 400,
