@@ -1,5 +1,5 @@
-import { styled } from '../../../styles'
-import { Cart } from '../../Navbar/styles'
+import { styled } from '../../../../../styles'
+import { Cart } from '../../../../../components/Navbar/styles'
 
 export const ContainerCard = styled('div', {
   backgroundColor: '$baseCard',
@@ -8,6 +8,7 @@ export const ContainerCard = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  marginBottom: '40px',
 
   height: '19.375rem',
   width: '16rem',

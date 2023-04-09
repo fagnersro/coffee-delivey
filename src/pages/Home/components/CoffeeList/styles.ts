@@ -1,4 +1,4 @@
-import { styled } from '../../styles'
+import { styled } from '../../../../styles'
 
 export const ContainerCoffeeList = styled('section', {
   height: '102.813rem',
@@ -26,6 +26,10 @@ export const TitleCoffeList = styled('h2', {
 })
 
 export const ListOfCofeeContainer = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gridTemplateRows: 'repeat(4, 1fr)',
+
   marginTop: '3.375rem',
   height: '84.8rem',
   width: '100%',

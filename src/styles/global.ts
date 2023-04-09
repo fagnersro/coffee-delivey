@@ -8,6 +8,7 @@ export const globalStyles = globalCss({
   },
 
   body: {
+    backgroundColor: '$background',
     overflowX: 'hidden',
   },
 

@@ -1,4 +1,4 @@
-import { styled } from '../../styles'
+import { styled } from '../../../../styles'
 
 export const ContainerIntro = styled('section', {
   display: 'flex',

@@ -6,7 +6,7 @@ import {
   WrapperTitleItem,
 } from './styles'
 import ItensContent from './ItensContent'
-import CopoCafe from '../../assets/Imagem.png'
+import CopoCafe from '../../../../assets/Imagem.png'
 
 export default function Intro() {
   return (

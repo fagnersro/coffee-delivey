@@ -9,7 +9,7 @@ import {
   CounterButtonPositive,
   CounterDisplay,
 } from './styles'
-import TradicionalCoffe from '../../../assets/Coffes/Tradicional.png'
+import TradicionalCoffe from '../../../../../assets/Coffes/Tradicional.png'
 import { Minus, Plus, ShoppingCart } from '@phosphor-icons/react'
 
 export default function CofeeCard() {

@@ -14,6 +14,19 @@ export default function CoffeeList() {
 
         <ListOfCofeeContainer>
           <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
+          <CofeeCard />
         </ListOfCofeeContainer>
       </WrapperCoffeList>
     </ContainerCoffeeList>
