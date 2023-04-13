@@ -64,4 +64,36 @@ export const Cart = styled('button', {
   svg: {
     color: '$yellowDark',
   },
+
+  span: {
+    backgroundColor: '$yellowDark',
+    borderRadius: '1000px',
+    color: '$white',
+
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontSize: '12px',
+
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    position: 'absolute',
+    right: '110px',
+    top: '25px',
+
+    height: '1.25rem',
+    width: '1.25rem',
+  },
+
+  variants: {
+    outlined: {
+      false: {
+        span: {
+          opacity: 0,
+        },
+      },
+    },
+  },
 })

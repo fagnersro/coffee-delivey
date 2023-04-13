@@ -1,5 +1,4 @@
 import { styled } from '../../../../../styles'
-import { Cart } from '../../../../../components/Navbar/styles'
 
 export const ContainerCard = styled('div', {
   backgroundColor: '$baseCard',
@@ -32,8 +31,6 @@ export const ContainerCard = styled('div', {
     fontWeight: 700,
     fontSize: '0.625rem',
     lineHeight: '130%',
-
-    marginTop: '1rem',
 
     height: '1.313rem',
     width: '5.063rem',
@@ -68,6 +65,17 @@ export const ContentTitle = styled('div', {
   },
 })
 
+export const ContainerTpeCoffee = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '4px',
+
+  marginTop: '1rem',
+  height: 'fit-content',
+  width: '13.188rem',
+})
+
 export const ContainerBuy = styled('div', {
   display: 'flex',
   alignItems: 'center',
@@ -100,7 +108,7 @@ export const ContainerPrice = styled('div', {
     fontFamily: 'Baloo 2',
     fontStyle: 'normal',
     fontWeight: 800,
-    fontSize: '24px',
+    fontSize: '1.5rem',
     lineHeight: '130%',
     textAlign: 'right',
   },
@@ -161,10 +169,25 @@ export const CounterButtonPositive = styled('button', {
   width: '0.875rem',
 })
 
-export const CartBuy = styled(Cart, {
+export const CartBuy = styled('button', {
+  all: 'unset',
   backgroundColor: '$purpleDark',
+  borderRadius: '6px',
+  cursor: 'pointer',
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  height: '2.375rem',
+  width: '2.375rem',
 
   svg: {
     color: '$white',
+  },
+
+  '&:hover': {
+    backgroundColor: '$purple',
+    transition: 'all 0.2s',
   },
 })

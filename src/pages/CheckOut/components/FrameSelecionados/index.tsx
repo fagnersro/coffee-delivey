@@ -1,8 +1,9 @@
-import ImgCoffeTradicional from '../../../../assets/Coffes/Tradicional.png'
-import ImgCoffeLatte from '../../../../assets/Coffes/Latte.png'
 import BtnCounter from '../../../../components/BtnCounter'
 import BtnRemover from '../../../../components/BtnRemover'
 import FrameDisplayPrice from '../FrameDisplayPrice'
+import { useContext } from 'react'
+import { DataCoffeeContext } from '../../../../context/DataCoffeeContext'
+import { PriceFormatter } from '../../../../utils/formatter'
 import {
   CoffeSelections,
   ContainerDataPrice,
@@ -16,46 +17,40 @@ import {
 } from './styles'
 
 export default function FrameSelecionados() {
+  const { coffeeSoldData } = useContext(DataCoffeeContext)
+
   return (
     <>
       <ContainerFrameSelections>
         <ListCoffe>
-          <CoffeSelections>
-            <DataContainerSelections>
-              <WrapperDataContainerSelection>
-                <img src={ImgCoffeTradicional} alt="" />
-                <p>
-                  <DataSelectionTitle>Expresso Tradicional</DataSelectionTitle>
-                  <CouterCheckoutCart>
-                    <BtnCounter />
-                    <BtnRemover />
-                  </CouterCheckoutCart>
-                </p>
-              </WrapperDataContainerSelection>
+          {coffeeSoldData.map((dataCoffee) => {
+            return (
+              <CoffeSelections key={dataCoffee.id}>
+                <DataContainerSelections>
+                  <WrapperDataContainerSelection>
+                    <img src={dataCoffee.coffeeImage} alt="" />
+                    <p>
+                      <DataSelectionTitle>
+                        {dataCoffee.title}
+                      </DataSelectionTitle>
+                      <CouterCheckoutCart>
+                        <BtnCounter />
+                        <BtnRemover />
+                      </CouterCheckoutCart>
+                    </p>
+                  </WrapperDataContainerSelection>
 
-              <ContainerDataPrice>
-                <DataSlectionPrice>R$9,90</DataSlectionPrice>
-              </ContainerDataPrice>
-            </DataContainerSelections>
-          </CoffeSelections>
-
-          <CoffeSelections>
-            <DataContainerSelections>
-              <WrapperDataContainerSelection>
-                <img src={ImgCoffeLatte} alt="" />
-                <p>
-                  <DataSelectionTitle>Latte</DataSelectionTitle>
-                  <CouterCheckoutCart>
-                    <BtnCounter />
-                    <BtnRemover />
-                  </CouterCheckoutCart>
-                </p>
-              </WrapperDataContainerSelection>
-              <ContainerDataPrice>
-                <DataSlectionPrice>R$19,80</DataSlectionPrice>
-              </ContainerDataPrice>
-            </DataContainerSelections>
-          </CoffeSelections>
+                  <ContainerDataPrice>
+                    <DataSlectionPrice>
+                      {PriceFormatter.format(
+                        dataCoffee.coffeeAmount * dataCoffee.price,
+                      )}
+                    </DataSlectionPrice>
+                  </ContainerDataPrice>
+                </DataContainerSelections>
+              </CoffeSelections>
+            )
+          })}
         </ListCoffe>
         <FrameDisplayPrice />
       </ContainerFrameSelections>
