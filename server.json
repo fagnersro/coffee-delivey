@@ -142,5 +142,12 @@
     }
   ],
   "coffesBuyAdds": [
+    {
+      "id": 1,
+      "title": "Expresso Tradicional",
+      "coffeeImage": "./src/assets/Coffes/Tradicional.png",
+      "price": 9.99,
+      "coffeeAmount": 3
+    }
   ]
 }

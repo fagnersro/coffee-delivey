@@ -5,15 +5,32 @@ import {
   ContainerBtnCounter,
   CounterDisplay,
 } from './styles'
+import { useState } from 'react'
 
-export default function BtnCounter() {
+interface BtnCounterProps {
+  displayValue: number
+  coffeeAmountPrice: number
+}
+
+export default function BtnCounter({
+  displayValue,
+  coffeeAmountPrice,
+}: BtnCounterProps) {
+  const [coffeeAmountCheckout, setCoffeeAmountCheckout] = useState(displayValue)
+
+  function addCoffeeAmountCheckout(): void {
+    setCoffeeAmountCheckout((state) => state + 1)
+  }
+
   return (
     <ContainerBtnCounter>
       <BtnNegative>
         <Minus />
       </BtnNegative>
-      <CounterDisplay value={1} />
-      <BtnPositive>
+
+      <CounterDisplay value={coffeeAmountCheckout} />
+
+      <BtnPositive onClick={addCoffeeAmountCheckout}>
         <Plus />
       </BtnPositive>
     </ContainerBtnCounter>

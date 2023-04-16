@@ -24,12 +24,22 @@ export interface CreateDataBuyCoffees {
   coffeeAmount: number
 }
 
+interface updateQuantityOfCoffeesType {
+  coffeeAmount: number
+}
+
 interface DataCoffeeContextType {
   dataCoffee: DataCoffee[]
   coffeeSoldData: CreateDataBuyCoffees[]
+  removeLoading: boolean
   fatchDataCoffee: () => Promise<void>
   fatchCoffeeSoldData: () => Promise<void>
   createCoffeeSoldData: (data: CreateDataBuyCoffees) => Promise<void>
+  deleteCoffeeSold: (idCofeeSold: number) => Promise<void>
+  updateQuantityOfCoffees(
+    data: updateQuantityOfCoffeesType,
+    id: number,
+  ): Promise<void>
 }
 
 interface DataCoffeeProviderProps {
@@ -41,6 +51,7 @@ export const DataCoffeeContext = createContext<DataCoffeeContextType>(
 )
 
 export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
+  const [removeLoading, setRemoveLoading] = useState(false)
   const [dataCoffee, setDataCoffee] = useState<DataCoffee[]>([])
   const [coffeeSoldData, setCoffeeSoldData] = useState<CreateDataBuyCoffees[]>(
     [],
@@ -50,6 +61,13 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
     const response = await api.get('coffees')
 
     setDataCoffee(response.data)
+  }, [])
+
+  const fatchCoffeeSoldData = useCallback(async () => {
+    const response = await api.get('coffesBuyAdds')
+
+    setCoffeeSoldData(response.data)
+    setRemoveLoading(false)
   }, [])
 
   const createCoffeeSoldData = useCallback(
@@ -68,11 +86,29 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
     [],
   )
 
-  const fatchCoffeeSoldData = useCallback(async () => {
-    const response = await api.get('coffesBuyAdds')
+  const deleteCoffeeSold = useCallback(
+    async (idCofeeSold: number) => {
+      const response = await api.delete(`coffesBuyAdds/${idCofeeSold}`)
+      setRemoveLoading(true)
+      setCoffeeSoldData((state) => [...state, response.data])
+      fatchCoffeeSoldData()
+    },
+    [fatchCoffeeSoldData],
+  )
 
-    setCoffeeSoldData(response.data)
-  }, [])
+  const updateQuantityOfCoffees = useCallback(
+    async (data: updateQuantityOfCoffeesType, id: number) => {
+      setRemoveLoading(true)
+      const { coffeeAmount } = data
+      const response = await api.patch(`coffesBuyAdds/${id}`, {
+        coffeeAmount,
+      })
+
+      setCoffeeSoldData((state) => [...state, response.data])
+      fatchCoffeeSoldData()
+    },
+    [fatchCoffeeSoldData],
+  )
 
   useEffect(() => {
     fatchDataCoffee()
@@ -86,10 +122,13 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
     <DataCoffeeContext.Provider
       value={{
         dataCoffee,
-        fatchDataCoffee,
-        createCoffeeSoldData,
         coffeeSoldData,
+        removeLoading,
+        fatchDataCoffee,
         fatchCoffeeSoldData,
+        createCoffeeSoldData,
+        deleteCoffeeSold,
+        updateQuantityOfCoffees,
       }}
     >
       {children}

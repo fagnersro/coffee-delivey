@@ -13,7 +13,7 @@ export const WrapperSectionForm = styled('div', {
   maxWidth: '69.622rem',
 })
 
-export const ContentForm = styled('form', {
+export const ContentForm = styled('div', {
   display: 'flex',
   gap: '2rem',
 })
@@ -118,6 +118,7 @@ export const FieldsetSelecionados = styled('fieldset', {
 })
 
 export const ContainerSelecionados = styled('div', {
+  // border: '1px solid red',
   backgroundColor: '$baseCard',
   borderRadius: '6px 44px',
 

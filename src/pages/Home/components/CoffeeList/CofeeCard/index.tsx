@@ -27,7 +27,7 @@ export default function CofeeCard({ propsDataCoffee }: DataCoffeeProps) {
   const { coffeeSoldData, createCoffeeSoldData } = useContext(DataCoffeeContext)
   const [coffeeAmount, setCoffeeAmount] = useState(0)
 
-  function addCoffeeAmount() {
+  function addCoffeeAmount(): void {
     setCoffeeAmount((state) => state + 1)
   }
   const values =

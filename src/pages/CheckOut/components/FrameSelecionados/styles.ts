@@ -4,18 +4,24 @@ export const ContainerFrameSelections = styled('div', {
   // border: '1px solid black',
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
   justifyContent: 'space-between',
 
   height: '21.75rem',
-  width: '23rem',
+  width: '100%',
 })
 
 export const ListCoffe = styled('ul', {
-  // border: '1px solid red',
+  // border: '1px solid blue',
   listStyle: 'none',
+  overflowY: 'auto',
+
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 
   height: '14.9rem',
-  width: '23rem',
+  width: '100%',
 })
 
 export const CoffeSelections = styled('li', {
@@ -86,3 +92,61 @@ export const CouterCheckoutCart = styled('div', {
   height: '2rem',
   width: '10.688rem',
 })
+
+// reference a btn count
+
+export const ContainerBtnCounter = styled('div', {
+  backgroundColor: '$baseButton',
+  borderRadius: '6px',
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '0.25rem',
+
+  height: '1.9rem',
+  width: '4.5rem',
+})
+
+export const BtnNegative = styled('button', {
+  all: 'unset',
+  cursor: 'pointer',
+  lineHeight: 0,
+
+  height: '0.875rem',
+  width: '0.875rem',
+
+  svg: {
+    fontSize: '0.875rem',
+  },
+})
+
+export const CounterDisplay = styled('input', {
+  all: 'unset',
+  color: '$baseTitle',
+  textAlign: 'center',
+
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '1rem',
+
+  height: '1.313rem',
+  width: '1.25rem',
+})
+
+export const BtnPositive = styled('button', {
+  all: 'unset',
+
+  lineHeight: 0,
+  cursor: 'pointer',
+
+  height: '0.875rem',
+  width: '0.875rem',
+
+  svg: {
+    fontSize: '0.875rem',
+  },
+})
+
+// finaly referency btn count
