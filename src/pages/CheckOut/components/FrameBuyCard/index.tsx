@@ -2,9 +2,6 @@ import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
 import { ContainerFrameActions, ContainerFrameTitle } from './style'
 
 export default function FrameBuyCard() {
-  function changeForm() {
-    event?.preventDefault()
-  }
   return (
     <>
       <ContainerFrameTitle>
@@ -16,15 +13,15 @@ export default function FrameBuyCard() {
       </ContainerFrameTitle>
 
       <ContainerFrameActions>
-        <button onClick={changeForm}>
+        <button>
           <CreditCard />
           cartão de crédito
         </button>
-        <button onClick={changeForm}>
+        <button>
           <Bank />
           cartão de débito
         </button>
-        <button onClick={changeForm}>
+        <button>
           <Money />
           dinheiro
         </button>

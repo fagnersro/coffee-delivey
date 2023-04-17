@@ -165,6 +165,7 @@ export const InputUf = styled('label', {
     all: 'unset',
     marginLeft: 12,
     width: '2.25rem',
+    textTransform: 'uppercase',
   },
 })
 
