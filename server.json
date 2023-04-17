@@ -141,5 +141,16 @@
       "price": 9.99
     }
   ],
-  "coffesBuyAdds": []
+  "coffesBuyAdds": [],
+  "coffeeDataSuccess": [
+    {
+      "rua": "Teste3",
+      "numero": 66,
+      "bairro": "Olinda",
+      "cidade": "hoa",
+      "uf": "df",
+      "payType": "debito",
+      "id": 1
+    }
+  ]
 }

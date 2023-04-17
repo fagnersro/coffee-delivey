@@ -40,6 +40,8 @@ import {
   InputRua,
   InputUf,
 } from './components/FrameInputs/styles'
+import { useContext } from 'react'
+import { DataCoffeeContext } from '../../context/DataCoffeeContext'
 
 const newDataFormValidationSchema = zod.object({
   cep: zod.number().min(1, 'Iforme seu CPF'),
@@ -55,6 +57,8 @@ const newDataFormValidationSchema = zod.object({
 type InputFormData = zod.infer<typeof newDataFormValidationSchema>
 
 export default function Checkout() {
+  const { receiveCoffeeDataSuccess, coffeeDataSuccess } =
+    useContext(DataCoffeeContext)
   const { register, handleSubmit, formState, control } = useForm<InputFormData>(
     {
       resolver: zodResolver(newDataFormValidationSchema),
@@ -65,10 +69,12 @@ export default function Checkout() {
   )
 
   function handleDataIputs(data: InputFormData) {
-    console.log(data)
+    console.log('consoleData' + data)
+    console.log(coffeeDataSuccess)
+    receiveCoffeeDataSuccess(data)
   }
   console.log(formState.errors)
-
+  console.log(coffeeDataSuccess)
   return (
     <SectionForm>
       <WrapperSectionForm>

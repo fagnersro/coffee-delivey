@@ -28,10 +28,21 @@ interface updateQuantityOfCoffeesType {
   coffeeAmount: number
 }
 
+interface CoffeeDataSuccess {
+  rua: string
+  numero: number
+  bairro: string
+  cidade: string
+  uf: string
+  payType: string
+}
+
 interface DataCoffeeContextType {
   dataCoffee: DataCoffee[]
   coffeeSoldData: CreateDataBuyCoffees[]
+  coffeeDataSuccess: CoffeeDataSuccess[]
   removeLoading: boolean
+  receiveCoffeeDataSuccess: (data: CoffeeDataSuccess) => Promise<void>
   fatchDataCoffee: () => Promise<void>
   fatchCoffeeSoldData: () => Promise<void>
   createCoffeeSoldData: (data: CreateDataBuyCoffees) => Promise<void>
@@ -56,6 +67,26 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
   const [coffeeSoldData, setCoffeeSoldData] = useState<CreateDataBuyCoffees[]>(
     [],
   )
+  const [coffeeDataSuccess, setCoffeeDataSuccess] = useState<
+    CoffeeDataSuccess[]
+  >([])
+
+  const receiveCoffeeDataSuccess = useCallback(
+    async (data: CoffeeDataSuccess) => {
+      const { rua, numero, bairro, cidade, uf, payType } = data
+      const response = await api.post('coffeeDataSuccess', {
+        rua,
+        numero,
+        bairro,
+        cidade,
+        uf,
+        payType,
+      })
+
+      setCoffeeDataSuccess([response.data])
+    },
+    [],
+  )
 
   const fatchDataCoffee = useCallback(async () => {
     const response = await api.get('coffees')
@@ -68,6 +99,12 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
 
     setCoffeeSoldData(response.data)
     setRemoveLoading(false)
+  }, [])
+
+  const fatchCoffeeDataSuccess = useCallback(async () => {
+    const response = await api.get('coffeeDataSuccess')
+
+    setCoffeeDataSuccess(response.data)
   }, [])
 
   const createCoffeeSoldData = useCallback(
@@ -118,11 +155,17 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
     fatchCoffeeSoldData()
   }, [fatchCoffeeSoldData])
 
+  useEffect(() => {
+    fatchCoffeeDataSuccess()
+  }, [fatchCoffeeDataSuccess])
+
   return (
     <DataCoffeeContext.Provider
       value={{
         dataCoffee,
         coffeeSoldData,
+        coffeeDataSuccess,
+        receiveCoffeeDataSuccess,
         removeLoading,
         fatchDataCoffee,
         fatchCoffeeSoldData,

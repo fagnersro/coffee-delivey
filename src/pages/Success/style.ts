@@ -104,6 +104,7 @@ export const CardDelivery = styled('div', {
     width: '19.375rem',
   },
   span: {
+    textTransform: 'capitalize',
     color: '$baseText',
     fontFamily: 'Roboto',
     fontStyle: 'normal',
@@ -147,6 +148,7 @@ export const CardPayment = styled('div', {
   },
 
   span: {
+    textTransform: 'capitalize',
     color: '$baseText',
     fontFamily: 'Roboto',
     fontStyle: 'normal',
