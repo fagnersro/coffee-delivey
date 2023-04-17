@@ -144,12 +144,12 @@
   "coffesBuyAdds": [],
   "coffeeDataSuccess": [
     {
-      "rua": "Teste3",
-      "numero": 66,
-      "bairro": "Olinda",
-      "cidade": "hoa",
-      "uf": "df",
-      "payType": "debito",
+      "rua": "Teste 7 Rua ",
+      "numero": 555,
+      "bairro": "Teste Bairro",
+      "cidade": "Teste cidade ",
+      "uf": "rj",
+      "payType": "dinheiro",
       "id": 1
     }
   ]

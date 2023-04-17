@@ -23,7 +23,7 @@ export default function Navbar() {
         <ContainerActions>
           <BtnLocation>
             <MapPin size={22} weight="fill" />
-            Porto Alegre, RS
+            Recife, PE
           </BtnLocation>
           {coffeeSoldData.length <= 0 ? (
             <Link to={'checkout'}>

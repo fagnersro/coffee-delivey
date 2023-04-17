@@ -1,5 +1,6 @@
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
 import Ilustration from '../../assets/Illustration.png'
+
 import {
   CardDelivery,
   CardForecast,

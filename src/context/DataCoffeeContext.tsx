@@ -35,6 +35,7 @@ interface CoffeeDataSuccess {
   cidade: string
   uf: string
   payType: string
+  id: number
 }
 
 interface DataCoffeeContextType {
@@ -70,23 +71,6 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
   const [coffeeDataSuccess, setCoffeeDataSuccess] = useState<
     CoffeeDataSuccess[]
   >([])
-
-  const receiveCoffeeDataSuccess = useCallback(
-    async (data: CoffeeDataSuccess) => {
-      const { rua, numero, bairro, cidade, uf, payType } = data
-      const response = await api.post('coffeeDataSuccess', {
-        rua,
-        numero,
-        bairro,
-        cidade,
-        uf,
-        payType,
-      })
-
-      setCoffeeDataSuccess([response.data])
-    },
-    [],
-  )
 
   const fatchDataCoffee = useCallback(async () => {
     const response = await api.get('coffees')
@@ -145,6 +129,24 @@ export function DataCoffeeProvider({ children }: DataCoffeeProviderProps) {
       fatchCoffeeSoldData()
     },
     [fatchCoffeeSoldData],
+  )
+
+  const receiveCoffeeDataSuccess = useCallback(
+    async (data: CoffeeDataSuccess) => {
+      const { rua, numero, bairro, cidade, uf, payType, id } = data
+      const response = await api.patch(`coffeeDataSuccess/${id}`, {
+        rua,
+        numero,
+        bairro,
+        cidade,
+        uf,
+        payType,
+        id,
+      })
+
+      setCoffeeDataSuccess([response.data])
+    },
+    [],
   )
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { Controller, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
@@ -52,6 +53,7 @@ const newDataFormValidationSchema = zod.object({
   cidade: zod.string().min(1, 'Informe sua cidade'),
   uf: zod.string().min(2, 'Informe seu estado'),
   payType: zod.enum(['credito', 'debito', 'dinheiro']),
+  id: zod.number(),
 })
 
 type InputFormData = zod.infer<typeof newDataFormValidationSchema>
@@ -63,15 +65,15 @@ export default function Checkout() {
     {
       resolver: zodResolver(newDataFormValidationSchema),
       defaultValues: {
-        complemento: '', // opcional
+        complemento: '',
+        id: 1,
       },
     },
   )
-
+  const navigate = useNavigate()
   function handleDataIputs(data: InputFormData) {
-    console.log('consoleData' + data)
-    console.log(coffeeDataSuccess)
     receiveCoffeeDataSuccess(data)
+    return navigate('/success')
   }
   console.log(formState.errors)
   console.log(coffeeDataSuccess)
@@ -195,6 +197,7 @@ export default function Checkout() {
 
             <ContainerSelecionados>
               <FrameSelecionados />
+
               <BtnSubmit type="submit">Confirmar Pedido</BtnSubmit>
             </ContainerSelecionados>
           </FieldsetSelecionados>
