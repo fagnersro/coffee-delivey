@@ -45,7 +45,6 @@ export const FrameTitleDowIputs = styled('div', {
   },
 })
 
-// INPUTS
 export const InputCep = styled('label', {
   border: '1px solid $baseButton',
   borderRadius: '4px',
@@ -168,5 +167,3 @@ export const InputUf = styled('label', {
     textTransform: 'uppercase',
   },
 })
-
-// INPUTS

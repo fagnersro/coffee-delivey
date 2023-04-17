@@ -2,6 +2,8 @@ import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useContext } from 'react'
+import { DataCoffeeContext } from '../../context/DataCoffeeContext'
 
 import FrameSelecionados from './components/FrameSelecionados'
 import {
@@ -41,8 +43,6 @@ import {
   InputRua,
   InputUf,
 } from './components/FrameInputs/styles'
-import { useContext } from 'react'
-import { DataCoffeeContext } from '../../context/DataCoffeeContext'
 
 const newDataFormValidationSchema = zod.object({
   cep: zod.number().min(1, 'Iforme seu CPF'),

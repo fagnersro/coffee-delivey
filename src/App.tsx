@@ -1,6 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
-// import Home from './pages/Home'
 import { globalStyles } from './styles/global'
 import { DataCoffeeProvider } from './context/DataCoffeeContext'
 

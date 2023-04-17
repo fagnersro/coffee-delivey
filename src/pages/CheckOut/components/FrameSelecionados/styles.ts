@@ -1,7 +1,6 @@
 import { styled } from '../../../../styles'
 
 export const ContainerFrameSelections = styled('div', {
-  // border: '1px solid black',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -12,7 +11,6 @@ export const ContainerFrameSelections = styled('div', {
 })
 
 export const ListCoffe = styled('ul', {
-  // border: '1px solid blue',
   listStyle: 'none',
   overflowY: 'auto',
 
@@ -33,7 +31,6 @@ export const CoffeSelections = styled('li', {
 })
 
 export const DataContainerSelections = styled('div', {
-  // border: '1px solid purple',
   height: '5rem',
   width: '23rem',
 
@@ -47,7 +44,6 @@ export const DataContainerSelections = styled('div', {
   },
 
   p: {
-    // border: '1px solid yellow',
     marginLeft: '1.25rem',
     height: '3.813rem',
     width: '10.688rem',
@@ -71,8 +67,6 @@ export const DataSelectionTitle = styled('span', {
 })
 
 export const ContainerDataPrice = styled('div', {
-  // border: '1px solid red',
-
   height: '70%',
   width: 'fit-content',
 
@@ -86,14 +80,11 @@ export const DataSlectionPrice = styled('span', {
 })
 
 export const CouterCheckoutCart = styled('div', {
-  // border: '1px solid green',
   display: 'flex',
   gap: '0.5rem',
   height: '2rem',
   width: '10.688rem',
 })
-
-// reference a btn count
 
 export const ContainerBtnCounter = styled('div', {
   backgroundColor: '$baseButton',
@@ -148,5 +139,3 @@ export const BtnPositive = styled('button', {
     fontSize: '0.875rem',
   },
 })
-
-// finaly referency btn count

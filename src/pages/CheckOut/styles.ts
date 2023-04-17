@@ -118,7 +118,6 @@ export const FieldsetSelecionados = styled('fieldset', {
 })
 
 export const ContainerSelecionados = styled('div', {
-  // border: '1px solid red',
   backgroundColor: '$baseCard',
   borderRadius: '6px 44px',
 
@@ -155,8 +154,6 @@ export const BtnSubmit = styled('button', {
     transition: 'all 0.2s',
   },
 })
-
-// reference to inputs
 
 export const FrameTitleDowIputs = styled('div', {
   display: 'flex',
@@ -203,7 +200,6 @@ export const FrameTitleDowIputs = styled('div', {
   },
 })
 
-// INPUTS
 export const InputCep = styled('label', {
   border: '1px solid $baseButton',
   borderRadius: '4px',

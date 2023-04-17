@@ -141,15 +141,37 @@
       "price": 9.99
     }
   ],
-  "coffesBuyAdds": [],
+  "coffesBuyAdds": [
+    {
+      "id": 1,
+      "title": "Expresso Tradicional",
+      "coffeeImage": "./src/assets/Coffes/Tradicional.png",
+      "price": 9.99,
+      "coffeeAmount": 4
+    },
+    {
+      "id": 2,
+      "title": "Expresso Americano",
+      "coffeeImage": "./src/assets/Coffes/ExpressoAmericano.png",
+      "price": 9.99,
+      "coffeeAmount": 5
+    },
+    {
+      "id": 3,
+      "title": "Expresso Cremoso",
+      "coffeeImage": "./src/assets/Coffes/ExpressoCremoso.png",
+      "price": 9.99,
+      "coffeeAmount": 4
+    }
+  ],
   "coffeeDataSuccess": [
     {
-      "rua": "Teste 7 Rua ",
-      "numero": 555,
-      "bairro": "Teste Bairro",
-      "cidade": "Teste cidade ",
-      "uf": "rj",
-      "payType": "dinheiro",
+      "rua": "NextJS  Education",
+      "numero": 2,
+      "bairro": "Vite",
+      "cidade": "React",
+      "uf": "Pe",
+      "payType": "debito",
       "id": 1
     }
   ]

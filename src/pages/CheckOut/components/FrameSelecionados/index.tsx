@@ -3,6 +3,9 @@ import FrameDisplayPrice from '../FrameDisplayPrice'
 import { useContext } from 'react'
 import { DataCoffeeContext } from '../../../../context/DataCoffeeContext'
 import { PriceFormatter } from '../../../../utils/formatter'
+import { Minus, Plus } from '@phosphor-icons/react'
+import Loading from '../../../../utils/Loading'
+
 import {
   BtnNegative,
   BtnPositive,
@@ -18,8 +21,6 @@ import {
   ListCoffe,
   WrapperDataContainerSelection,
 } from './styles'
-import { Minus, Plus } from '@phosphor-icons/react'
-import Loading from '../../../../utils/Loading'
 
 export default function FrameSelecionados() {
   const { coffeeSoldData, updateQuantityOfCoffees, removeLoading } =
