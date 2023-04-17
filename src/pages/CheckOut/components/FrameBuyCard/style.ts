@@ -1,4 +1,5 @@
 import { styled } from '../../../../styles'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const ContainerFrameTitle = styled('div', {
   marginTop: '2.5rem',
@@ -37,7 +38,7 @@ export const ContainerFrameTitle = styled('div', {
   },
 })
 
-export const ContainerFrameActions = styled('div', {
+export const ContainerFrameActions = styled(RadioGroup.Root, {
   display: 'flex',
 
   gap: 12,
@@ -45,42 +46,42 @@ export const ContainerFrameActions = styled('div', {
   marginTop: '2rem',
   height: '3.188rem',
   width: '35rem',
+  lineHeight: 0,
+})
 
-  button: {
-    all: 'unset',
-    border: '1px solid transparent',
-    backgroundColor: '$baseButton',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    color: '$baseText',
+export const Inputs = styled(RadioGroup.Item, {
+  all: 'unset',
+  border: '1px solid transparent',
+  backgroundColor: '$baseButton',
+  borderRadius: '6px',
+  cursor: 'pointer',
+  color: '$baseText',
 
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    lineHeight: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 
-    gap: 12,
+  gap: 12,
 
-    textTransform: 'uppercase',
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontWeight: 400,
-    fontSize: '12px',
+  textTransform: 'uppercase',
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontSize: '12px',
 
-    width: '11.166rem',
+  width: '11.166rem',
 
-    svg: {
-      color: '$purple',
-      fontSize: '1rem',
-    },
+  svg: {
+    color: '$purple',
+    fontSize: '1rem',
+  },
 
-    '&:hover': {
-      backgroundColor: '$baseHover',
-      transition: 'background-color 0.2s',
-    },
+  '&:hover': {
+    backgroundColor: '$baseHover',
+    transition: 'background-color 0.2s',
+  },
 
-    '&:focus': {
-      border: '1px solid $purple',
-    },
+  '&[data-state="checked"]': {
+    border: '1px solid $purple',
   },
 })

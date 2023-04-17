@@ -1,10 +1,22 @@
-import { MapPinLine } from '@phosphor-icons/react'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
-import FrameBuyCard from './components/FrameBuyCard'
 import FrameSelecionados from './components/FrameSelecionados'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from '@phosphor-icons/react'
+
+import {
+  ContainerFrameActions,
+  ContainerFrameTitle,
+  Inputs,
+} from './components/FrameBuyCard/style'
+
 import {
   BtnSubmit,
   ContainerDow,
@@ -36,18 +48,21 @@ const newDataFormValidationSchema = zod.object({
   complemento: zod.string(),
   bairro: zod.string().min(1, 'Informe o seu bairro'),
   cidade: zod.string().min(1, 'Informe sua cidade'),
-  uf: zod.string().min(1, 'Informe seu estado'),
+  uf: zod.string().min(2, 'Informe seu estado'),
+  payType: zod.enum(['credito', 'debito', 'dinheiro']),
 })
 
 type InputFormData = zod.infer<typeof newDataFormValidationSchema>
 
 export default function Checkout() {
-  const { register, handleSubmit, formState } = useForm<InputFormData>({
-    resolver: zodResolver(newDataFormValidationSchema),
-    defaultValues: {
-      complemento: '', // opcional
+  const { register, handleSubmit, formState, control } = useForm<InputFormData>(
+    {
+      resolver: zodResolver(newDataFormValidationSchema),
+      defaultValues: {
+        complemento: '', // opcional
+      },
     },
-  })
+  )
 
   function handleDataIputs(data: InputFormData) {
     console.log(data)
@@ -119,14 +134,53 @@ export default function Checkout() {
                   </InputCidade>
 
                   <InputUf>
-                    <input type="text" placeholder="UF" {...register('uf')} />
+                    <input
+                      type="text"
+                      placeholder="UF"
+                      {...register('uf', { max: 2 })}
+                    />
                   </InputUf>
                 </div>
               </FrameTitleDowIputs>
             </ContainerUp>
 
             <ContainerDow>
-              <FrameBuyCard />
+              <ContainerFrameTitle>
+                <div>
+                  <CurrencyDollar />
+                  <span>Pagamento</span>
+                </div>
+                <p>
+                  O pagamento é feito na entrega. Escolha a forma que deseja
+                  pagar
+                </p>
+              </ContainerFrameTitle>
+              <Controller
+                control={control}
+                name="payType"
+                render={({ field }) => {
+                  return (
+                    <ContainerFrameActions
+                      onValueChange={field.onChange}
+                      value={field.value}
+                    >
+                      <Inputs value="credito">
+                        <CreditCard />
+                        cartão de crédito
+                      </Inputs>
+
+                      <Inputs value="debito">
+                        <Bank />
+                        cartão de débito
+                      </Inputs>
+                      <Inputs value="dinheiro">
+                        <Money />
+                        dinheiro
+                      </Inputs>
+                    </ContainerFrameActions>
+                  )
+                }}
+              />
             </ContainerDow>
           </FieldsetPedido>
 

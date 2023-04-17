@@ -1,5 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from '@phosphor-icons/react'
-import { ContainerFrameActions, ContainerFrameTitle } from './style'
+import { ContainerFrameActions, ContainerFrameTitle, Inputs } from './style'
 
 export default function FrameBuyCard() {
   return (
@@ -13,18 +13,18 @@ export default function FrameBuyCard() {
       </ContainerFrameTitle>
 
       <ContainerFrameActions>
-        <button>
+        <Inputs value="credito">
           <CreditCard />
           cartão de crédito
-        </button>
-        <button>
+        </Inputs>
+        <Inputs value="debito">
           <Bank />
           cartão de débito
-        </button>
-        <button>
+        </Inputs>
+        <Inputs value="dinheiro">
           <Money />
           dinheiro
-        </button>
+        </Inputs>
       </ContainerFrameActions>
     </>
   )
